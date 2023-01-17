@@ -9,3 +9,6 @@ def index(request):
 
 def products(request):
     return render(request, 'jinsung/product.html')
+
+def products_update(request):
+    return render(request, 'jinsung/product_update.html')

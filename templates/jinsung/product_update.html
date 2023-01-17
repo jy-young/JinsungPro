@@ -1,0 +1,16 @@
+{% extends '../base.html' %}
+{% block content %}
+
+<script type="text/javascript"> 
+    $(document).ready(function() { $("#content").summernote(); }) 
+  </script>
+
+<h1>글쓰기</h1>
+
+제목 : <input type="text">
+글 : <textarea class="form-control" name="content" id="content" rows="10"></textarea>
+
+<a href="/products">
+    <button>완료</button>
+</a>
+{% endblock content %}
