@@ -1,138 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/b008146973.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>진성테크</title>
 </head>
 <body>
-    <header>
-        <div class="inner">
-            <!-- 로고 -->
-            <div class="las">
-                <img src="static/img/진성테크로고.PNG">
-                <form class="search-form">
-                    <input type="search" value="" placeholder="Search" class="search-input">
-                    <button type="submit" class="search-button">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-            </div>
+    {% include 'header.html' %}
 
-            <ul id="navbar">
-                <li><a href="#">MENU</a></li>
-                <li><a href="#">MENU</a></li>
-                <li><a href="#">MENU</a></li>
-                <li><a href="#">MENU</a></li>
-            </ul>
-        </div>
-    </header>
-    <figure>
-        <video src="static/img/visual.mp4" autoplay muted loop></video>
-        <div class="info">
-            <h1>ECOSYSTEM</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br>
-                Maiores asperiores, neque exercitationem mollitia velit eaque, voluptates, fugit facere cumque dolore autem voluptatum harum perspiciatis.
-                Rem totam laborum quia soluta porro.</p>
-        </div>
-    </figure>
-    <section>
-        <div class="products">
-            <h1>대표 제품 소개</h1>
-            <article class="face1">
-                <!-- <div class="btnPrev">
-                    <i class="fas fa-chevron-left"></i>
-                </div> -->
-                <div class="wrap">
-                    <article>
-                        <div class="pic">
-                            <img src="static/img/news1.jpg">
-                        </div>
-                        <h2><a href="#">상품 카테고리</a></h2>
-                        <p>상품 제목</p>
-                    </article>
-                    <article>
-                        <div class="pic">
-                            <img src="static/img/news2.jpg">
-                        </div>
-                        <h2><a href="#">상품 카테고리</a></h2>
-                        <p>상품 제목</p>
-                    </article>
-                    <article>
-                        <div class="pic">
-                            <img src="static/img/news3.jpg">
-                        </div>
-                        <h2><a href="#">상품 카테고리</a></h2>
-                        <p>상품 제목</p>
-                    </article>
-                    <article>
-                        <div class="pic">
-                            <img src="static/img/news4.jpg">
-                        </div>
-                        <h2><a href="#">상품 카테고리</a></h2>
-                        <p>상품 제목</p>
-                    </article>
-                </div>
-                <div class="wrap">
-                    <article>
-                        <div class="pic">
-                            <img src="static/img/news1.jpg">
-                        </div>
-                        <h2><a href="#">상품 카테고리</a></h2>
-                        <p>상품 제목</p>
-                    </article>
-                    <article>
-                        <div class="pic">
-                            <img src="static/img/news2.jpg">
-                        </div>
-                        <h2><a href="#">상품 카테고리</a></h2>
-                        <p>상품 제목</p>
-                    </article>
-                    <article>
-                        <div class="pic">
-                            <img src="static/img/news3.jpg">
-                        </div>
-                        <h2><a href="#">상품 카테고리</a></h2>
-                        <p>상품 제목</p>
-                    </article>
-                    <article>
-                        <div class="pic">
-                            <img src="static/img/news4.jpg">
-                        </div>
-                        <h2><a href="#">상품 카테고리</a></h2>
-                        <p>상품 제목</p>
-                    </article>
-                </div>
-                <!-- <div class="btnNext">
-                    <i class="fas fa-chevron-right"></i>
-                </div> -->
-            </article>
-        </div>
-    </section>
-    <footer>
-        <div class="inner">
-        <div class="upper">
-            <h1>진성테크</h1>
-            <ul>
-                <li><a href="#">Policy</a></li>
-                <li><a href="#">Term</a></li>
-                <li><a href="#">Family Site</a></li>
-                <li><a href="#">Sitemap</a></li>
-            </ul>
-        </div>
-        <div class="lower">
-            <address>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, facere.<br>
-                TEL : 031-111-1234 C.P:010-1234-5678
-            </address>
-            <p>
-                2022 DOCOELAB &copy; copyright all right reserved.
-            </p>
-        </div>
-        </div>
-    </footer>
+    <!-- 기본 템플릿 안에 삽입될 내용 Start -->
+    {% block content %}
+    {% endblock %}
+    <!-- 기본 템플릿 안에 삽입될 내용 End -->
+
+    {% include 'footer.html' %}
+    
 </body>
 </html>
