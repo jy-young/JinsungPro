@@ -1,0 +1,24 @@
+{% extends '../base.html' %}
+{% block content %}
+
+<script type="text/javascript"> 
+    $(document).ready(function() { $("#content").summernote(); }) 
+  </script>
+
+<h1>글쓰기</h1>
+<form method="post" enctype="multipart/form-data" action="/products/">
+  {% csrf_token %}
+  <table>
+    <tr>
+      <th>제목</th>
+      <td><input type="text" name="title"></td>
+    </tr>
+    <tr>
+      <th>글</th>
+      <td><textarea class="form-control" name="content" id="content" rows="10"></textarea></td>
+    </tr>
+  </table>
+<!-- <a href="/products"></a> -->
+  <button type="submit">완료</button>
+</form>
+{% endblock content %}
