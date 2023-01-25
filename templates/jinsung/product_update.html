@@ -6,7 +6,7 @@
   </script>
 
 <h1>글쓰기</h1>
-<form method="post" enctype="multipart/form-data" action="/products/">
+<form method="post" enctype="multipart/form-data" action="{% url 'products_update' %}">
   {% csrf_token %}
   <table>
     <tr>
@@ -16,6 +16,20 @@
     <tr>
       <th>글</th>
       <td><textarea class="form-control" name="content" id="content" rows="10"></textarea></td>
+    </tr>
+    <tr>
+      <th>대표이미지</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>태그</th>
+      <td>
+        <select name="tag">
+          {% for tag in tags %}
+          <option value="{{tag.0}}">{{tag.0}}</option>
+          {% endfor %}
+        </select>
+      </td>
     </tr>
   </table>
 <!-- <a href="/products"></a> -->
