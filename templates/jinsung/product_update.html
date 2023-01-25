@@ -20,9 +20,9 @@
     <tr>
       <th>태그</th>
       <td>
-        <select>
+        <select name="tag">
           {% for tag in tags %}
-          <option value="{{tag}}">{{tag.0}}</option>
+          <option value="{{tag.0}}">{{tag.0}}</option>
           {% endfor %}
         </select>
       </td>

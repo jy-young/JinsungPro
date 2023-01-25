@@ -13,9 +13,11 @@ def products(request):
 
 def products_update(request):
     if request.method == "POST":
+        print(request.POST.get('tag'))
         data = {
             'title':request.POST.get('title'),
-            'content': request.POST.get('content')
+            'content': request.POST.get('content'),
+            'tag':request.POST.get('tag')
         }
         Post.objects.create(**data)
 
