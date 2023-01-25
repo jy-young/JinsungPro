@@ -1,6 +1,7 @@
 from django.db import models
 
 class Post(models.Model):
+    product_photo = models.ImageField(blank=True, null=True)
     title = models.CharField(max_length=50)
     content = models.TextField()
     tags = [
