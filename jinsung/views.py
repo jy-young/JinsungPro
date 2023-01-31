@@ -9,7 +9,12 @@ def index(request):
     return render(request, 'jinsung/index.html')
 
 def products(request):
-    return render(request, 'jinsung/product.html')
+    products = Post.objects.all()
+
+    context = {
+        'products':products
+    }
+    return render(request, 'jinsung/product.html',context)
 
 def products_update(request):
     if request.method == "POST":

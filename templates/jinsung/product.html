@@ -1,5 +1,6 @@
 {% extends '../base.html' %}
 {% block content %}
+{% load static %}
 
 <style type="text/css">
 
@@ -84,39 +85,17 @@
 
 <div id="content">
     <div class="wrapper">
-       <div class="card">
-           <img src="img/01.jpg">
-           <br><a>TITLE</a>
-       </div>
-        <div class="card">
-           <img src="img/01.jpg">
-           <br><a>TITLE</a>
-       </div>
-        <div class="card">
-           <img src="img/01.jpg">
-           <br><a>TITLE</a>
-       </div>
-        <div class="card">
-           <img src="img/01.jpg">
-           <br><a>TITLE</a>
-       </div>
-        <div class="card">
-           <img src="img/01.jpg">
-           <br><a>TITLE</a>
-       </div>
-        <div class="card">
-           <img src="img/01.jpg">
-           <br><a>TITLE</a>
-       </div>
-        <div class="card">
-           <img src="img/01.jpg">
-           <br><a>TITLE</a>
-       </div>
-        <div class="card">
-           <img src="img/01.jpg">
-           <br><a>TITLE</a>
-       </div>
+      {% for product in products %}
+       <div class="card" style="padding: 10px;">
+          {% if product.product_photo %}
+          <img src="/media/{{product.product_photo}}" style="width:100%; height:auto;">
+          {% else %}
+          <img src="{% static 'img/no_picture.png' %}" style="width:100%; height: auto;"/>
+          {% endif %}
 
+          <a>{{product.title}}</a>
+       </div>
+       {% endfor %}
     </div>
 
     <div class="page">
