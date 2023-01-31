@@ -98,7 +98,7 @@
           <img src="{% static 'img/no_picture.png' %}" style="width:100%; height: auto;"/>
           {% endif %}
 
-          <a>{{product.title}}</a>
+          <a href="{% url 'products_detail' product.pk %}">{{product.title}}</a>
        </div>
        {% endfor %}
     </div>

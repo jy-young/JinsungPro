@@ -1,0 +1,15 @@
+{% extends '../base.html' %}
+{% block content %}
+{% load static %}
+
+{% if point.product_photo %}
+<img src="/media/{{point.product_photo}}" style="width:100px; height:auto;">
+{% else %}
+<img src="{% static 'img/no_picture.png' %}" style="width:100px; height: auto;"/>
+{% endif %}
+
+<h1>{{point.title}}</h1>
+<hr>
+<h5>상품상세정보</h5>
+{{point.content | safe}}
+{% endblock %}

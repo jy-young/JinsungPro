@@ -3,6 +3,7 @@ from django.http import HttpResponse
 # Create your views here.
 from django.shortcuts import render,redirect
 from .models import Post
+from django_summernote.widgets import SummernoteWidget
 
 
 def index(request):
@@ -28,6 +29,13 @@ def products_update(request):
 
         return redirect(f'/products/')
     context = {
-        'tags': Post.all_tags
+        'tags': Post.all_tags,
     }
     return render(request, 'jinsung/product_update.html',context)
+
+def products_detail(request, pk):
+    point = Post.objects.get(pk = pk)
+    context = {
+        'point' : point
+    }
+    return render(request, 'jinsung/product_detail.html', context)
