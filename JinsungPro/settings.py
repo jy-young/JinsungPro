@@ -126,6 +126,8 @@ STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
+
+SUMMERNOTE_CONFIG = {}
 # MEDIA_ROOT = os.path.join(BASE_DIR, '..','public','media') 
 # 위의 폴더의 public 밑에 media 폴더
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # 실제 파일을 저장할 root 경로
