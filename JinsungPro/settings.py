@@ -129,3 +129,5 @@ MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, '..','public','media') 
 # 위의 폴더의 public 밑에 media 폴더
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # 실제 파일을 저장할 root 경로
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
