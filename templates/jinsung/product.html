@@ -3,7 +3,6 @@
 {% load static %}
 
 <style type="text/css">
-
     #sidebar{
         width:20%;
         padding: 20px;
@@ -56,19 +55,20 @@
     }
 
 
-    li a {
+    li input {
       display: block;
       color: #000;
       padding: 8px 16px;
       text-decoration: none;
+      border:none; outline:none; box-shadow:none;
     }
 
-    li a.active {
+    li input.active {
       background-color: #555;
       color: white;
     }
 
-    .item li a:hover:not(.active) {
+    .item li input:hover:not(.active) {
       background-color: #555;
       color: white;
     }
@@ -80,11 +80,12 @@
 
 <div id="sidebar">
     <ul class="item">
-      <li><a class="active" href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
+      {% for tag in tags %}
+      <form action="{% url 'pro_tag' %}" method="GET">
+      <input type="hidden" id="tag" name="tag" value="{{tag.0}}"/>
+      <li><a><input type="submit" value="{{tag.0}}"></input></a></li>
+      </form>
+      {% endfor %}
     </ul>
 </div>
 

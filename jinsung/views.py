@@ -13,7 +13,19 @@ def products(request):
     products = Post.objects.all()
 
     context = {
-        'products':products
+        'products':products,
+        'tags': Post.all_tags,
+    }
+    return render(request, 'jinsung/product.html',context)
+
+def pro_tag(request):
+    tag = request.GET.get('tag')
+    print(tag)
+    products = Post.objects.filter(tag = tag)
+    print(products)
+    context = {
+        'products':products,
+        'tags': Post.all_tags,
     }
     return render(request, 'jinsung/product.html',context)
 
