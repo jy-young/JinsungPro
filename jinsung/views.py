@@ -12,6 +12,10 @@ def index(request):
 def products(request):
     products = Post.objects.all()
 
+    if request.method == "POST": #검색기능
+        search = request.POST.get('search')
+        products = Post.objects.filter(title__contains = search)
+
     context = {
         'products':products,
         'tags': Post.all_tags,
@@ -20,9 +24,7 @@ def products(request):
 
 def pro_tag(request):
     tag = request.GET.get('tag')
-    print(tag)
     products = Post.objects.filter(tag = tag)
-    print(products)
     context = {
         'products':products,
         'tags': Post.all_tags,
@@ -31,7 +33,6 @@ def pro_tag(request):
 
 def products_update(request):
     if request.method == "POST":
-        print(request.POST.get('tag'))
         data = {
             'title':request.POST.get('title'),
             'content': request.POST.get('content'),
