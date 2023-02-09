@@ -4,20 +4,25 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .models import Post
 from django_summernote.widgets import SummernoteWidget
+from django.core.paginator import Paginator
 
 
 def index(request):
     return render(request, 'jinsung/index.html')
 
 def products(request):
+    page = request.GET.get('page','1')
     products = Post.objects.all()
 
     if request.method == "POST": #검색기능
         search = request.POST.get('search')
         products = Post.objects.filter(title__contains = search)
+    
+    paginator = Paginator(products, 8)
+    page_obj = paginator.get_page(page)
 
     context = {
-        'products':products,
+        'products':page_obj,
         'tags': Post.all_tags,
     }
     return render(request, 'jinsung/product.html',context)
