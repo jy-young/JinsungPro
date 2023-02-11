@@ -54,6 +54,7 @@ def products_update(request):
 def products_detail(request, pk):
     point = Post.objects.get(pk = pk)
     context = {
-        'point' : point
+        'point' : point,
+        'tags': Post.all_tags,
     }
     return render(request, 'jinsung/product_detail.html', context)
