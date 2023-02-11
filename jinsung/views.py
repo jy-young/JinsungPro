@@ -58,3 +58,6 @@ def products_detail(request, pk):
         'tags': Post.all_tags,
     }
     return render(request, 'jinsung/product_detail.html', context)
+
+def intro(request):
+    return render(request,'jinsung/intro.html')
