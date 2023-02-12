@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 <figure>
     <video src="static/img/visual.mp4" autoplay muted loop></video>
     <div class="info">
@@ -17,68 +18,36 @@
                 <i class="fas fa-chevron-left"></i>
             </div> -->
             <div class="wrap">
+                {% for i in pd1 %}
                 <article>
                     <div class="pic">
-                        <img src="static/img/news1.jpg">
+                        {% if i.product_photo %}
+                        <img src="/media/{{i.product_photo}}">
+                        {% else %}
+                        <img src="{% static 'img/no_picture.png' %}"/>
+                        {% endif %}
                     </div>
-                    <h2><a href="#">상품 카테고리</a></h2>
-                    <p>상품 제목</p>
+                    
+                    <h2><a href="{% url 'products_detail' i.pk %}">{{i.title}}</a></h2>
+                    <p>{{i.tag}}</p>
                 </article>
-                <article>
-                    <div class="pic">
-                        <img src="static/img/news2.jpg">
-                    </div>
-                    <h2><a href="#">상품 카테고리</a></h2>
-                    <p>상품 제목</p>
-                </article>
-                <article>
-                    <div class="pic">
-                        <img src="static/img/news3.jpg">
-                    </div>
-                    <h2><a href="#">상품 카테고리</a></h2>
-                    <p>상품 제목</p>
-                </article>
-                <article>
-                    <div class="pic">
-                        <img src="static/img/news4.jpg">
-                    </div>
-                    <h2><a href="#">상품 카테고리</a></h2>
-                    <p>상품 제목</p>
-                </article>
+                {% endfor %}
             </div>
             <div class="wrap">
+                {% for j in pd2 %}
                 <article>
                     <div class="pic">
-                        <img src="static/img/news1.jpg">
+                        {% if j.product_photo %}
+                        <img src="/media/{{j.product_photo}}">
+                        {% else %}
+                        <img src="{% static 'img/no_picture.png' %}"/>
+                        {% endif %}
                     </div>
-                    <h2><a href="#">상품 카테고리</a></h2>
-                    <p>상품 제목</p>
+                    
+                    <h2><a href="{% url 'products_detail' j.pk %}">{{j.title}}</a></h2>
+                    <p>{{j.tag}}</p>
                 </article>
-                <article>
-                    <div class="pic">
-                        <img src="static/img/news2.jpg">
-                    </div>
-                    <h2><a href="#">상품 카테고리</a></h2>
-                    <p>상품 제목</p>
-                </article>
-                <article>
-                    <div class="pic">
-                        <img src="static/img/news3.jpg">
-                    </div>
-                    <h2><a href="#">상품 카테고리</a></h2>
-                    <p>상품 제목</p>
-                </article>
-                <article>
-                    <div class="pic">
-                        <img src="static/img/news4.jpg">
-                    </div>
-                    <h2><a href="#">상품 카테고리</a></h2>
-                    <p>상품 제목</p>
-                </article>
-            </div>
-            <!-- <div class="btnNext">
-                <i class="fas fa-chevron-right"></i>
-            </div> -->
+                {% endfor %}
         </article>
     </div>
 </section>

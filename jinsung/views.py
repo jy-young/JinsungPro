@@ -8,7 +8,13 @@ from django.core.paginator import Paginator
 
 
 def index(request):
-    return render(request, 'jinsung/index.html')
+    pd1 = Post.objects.get_queryset().order_by('-id')[:4]
+    pd2 = Post.objects.get_queryset().order_by('-id')[5:9]
+    context = {
+        'pd1':pd1,
+        'pd2':pd2
+    }
+    return render(request, 'jinsung/index.html',context)
 
 def products(request):
     page = request.GET.get('page','1')
