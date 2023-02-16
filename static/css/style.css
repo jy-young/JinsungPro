@@ -91,12 +91,12 @@ figure .info{
     position: relative;
 }
 figure .info h1{
-    font: normal 120px/1 "arial";
+    font: normal 100px/1 "arial";
     color: #fff;
     margin-top: 120px;
 }
 figure .info p{
-    font: 16px/1.4 "arial";
+    font: 30px/1.4 "arial";
     color: #888;
     margin-top: 50px;
 }
